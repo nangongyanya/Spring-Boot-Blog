@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.waylau.spring.boot.blog.domain.User;
-import com.waylau.spring.boot.blog.domain.es.EsBlog;
-import com.waylau.spring.boot.blog.service.EsBlogService;
-import com.waylau.spring.boot.blog.vo.TagVO;
+import com.lakey.blog.domain.User;
+import com.lakey.blog.domain.es.EsBlog;
+import com.lakey.blog.service.EsBlogService;
+import com.lakey.blog.vo.TagVO;
 
 /**
  * 主页控制器.

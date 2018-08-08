@@ -24,11 +24,11 @@ public class VoteServiceImpl implements VoteService {
 	@Override
 	@Transactional
 	public void removeVote(Long id) {
-		voteRepository.delete(id);
+		voteRepository.deleteById(id);
 	}
 	@Override
 	public Vote getVoteById(Long id) {
-		return voteRepository.findOne(id);
+		return voteRepository.getOne(id);
 	}
 
 }

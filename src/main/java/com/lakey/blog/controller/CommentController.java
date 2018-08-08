@@ -17,13 +17,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.waylau.spring.boot.blog.domain.Blog;
-import com.waylau.spring.boot.blog.domain.Comment;
-import com.waylau.spring.boot.blog.domain.User;
-import com.waylau.spring.boot.blog.service.BlogService;
-import com.waylau.spring.boot.blog.service.CommentService;
-import com.waylau.spring.boot.blog.util.ConstraintViolationExceptionHandler;
-import com.waylau.spring.boot.blog.vo.Response;
+import com.lakey.blog.domain.Blog;
+import com.lakey.blog.domain.Comment;
+import com.lakey.blog.domain.User;
+import com.lakey.blog.service.BlogService;
+import com.lakey.blog.service.CommentService;
+import com.lakey.blog.util.ConstraintViolationExceptionHandler;
+import com.lakey.blog.vo.Response;
  
 
 /**

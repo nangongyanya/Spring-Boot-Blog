@@ -24,11 +24,11 @@ public class CommentServiceImpl implements CommentService {
 	@Override
 	@Transactional
 	public void removeComment(Long id) {
-		commentRepository.delete(id);
+		commentRepository.deleteById(id);
 	}
 	@Override
 	public Comment getCommentById(Long id) {
-		return commentRepository.findOne(id);
+		return commentRepository.getOne(id);
 	}
 
 }

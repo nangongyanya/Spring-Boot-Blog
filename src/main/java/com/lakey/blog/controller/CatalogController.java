@@ -19,12 +19,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.waylau.spring.boot.blog.domain.Catalog;
-import com.waylau.spring.boot.blog.domain.User;
-import com.waylau.spring.boot.blog.service.CatalogService;
-import com.waylau.spring.boot.blog.util.ConstraintViolationExceptionHandler;
-import com.waylau.spring.boot.blog.vo.CatalogVO;
-import com.waylau.spring.boot.blog.vo.Response;
+import com.lakey.blog.domain.Catalog;
+import com.lakey.blog.domain.User;
+import com.lakey.blog.service.CatalogService;
+import com.lakey.blog.util.ConstraintViolationExceptionHandler;
+import com.lakey.blog.vo.CatalogVO;
+import com.lakey.blog.vo.Response;
  
 
 /**

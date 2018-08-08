@@ -12,11 +12,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.waylau.spring.boot.blog.domain.User;
-import com.waylau.spring.boot.blog.service.BlogService;
-import com.waylau.spring.boot.blog.service.VoteService;
-import com.waylau.spring.boot.blog.util.ConstraintViolationExceptionHandler;
-import com.waylau.spring.boot.blog.vo.Response;
+import com.lakey.blog.domain.User;
+import com.lakey.blog.service.BlogService;
+import com.lakey.blog.service.VoteService;
+import com.lakey.blog.util.ConstraintViolationExceptionHandler;
+import com.lakey.blog.vo.Response;
  
 
 /**

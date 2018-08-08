@@ -4,7 +4,6 @@ import static org.elasticsearch.index.query.QueryBuilders.matchAllQuery;
 import static org.elasticsearch.search.aggregations.AggregationBuilders.terms;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import com.lakey.blog.domain.User;
@@ -53,7 +52,7 @@ public class EsBlogServiceImpl implements EsBlogService {
 	 */
 	@Override
 	public void removeEsBlog(String id) {
-		esBlogRepository.delete(id);
+		esBlogRepository.deleteById(id);
 	}
 
 	/* (non-Javadoc)
@@ -110,7 +109,6 @@ public class EsBlogServiceImpl implements EsBlogService {
  
 	/**
 	 * 最新前5
-	 * @param keyword
 	 * @return
 	 */
 	@Override
@@ -121,7 +119,6 @@ public class EsBlogServiceImpl implements EsBlogService {
 	
 	/**
 	 * 最热前5
-	 * @param keyword
 	 * @return
 	 */
 	@Override
@@ -148,13 +145,9 @@ public class EsBlogServiceImpl implements EsBlogService {
 				return response.getAggregations();
 			}
 		});
-		
-		StringTerms modelTerms =  (StringTerms)aggregations.asMap().get("tags"); 
-	        
-        Iterator<Bucket> modelBucketIt = modelTerms.getBuckets().iterator();
-        while (modelBucketIt.hasNext()) {
-            Bucket actiontypeBucket = modelBucketIt.next();
- 
+
+		StringTerms modelTerms =  (StringTerms)aggregations.asMap().get("tags");
+        for (Bucket actiontypeBucket : modelTerms.getBuckets()) {
             list.add(new TagVO(actiontypeBucket.getKey().toString(),
                     actiontypeBucket.getDocCount()));
         }
@@ -180,16 +173,13 @@ public class EsBlogServiceImpl implements EsBlogService {
 			}
 		});
 		
-		StringTerms modelTerms =  (StringTerms)aggregations.asMap().get("users"); 
-	        
-        Iterator<Bucket> modelBucketIt = modelTerms.getBuckets().iterator();
-        while (modelBucketIt.hasNext()) {
-            Bucket actiontypeBucket = modelBucketIt.next();
-            String username = actiontypeBucket.getKey().toString();
-            usernamelist.add(username);
-        }
+		StringTerms modelTerms =  (StringTerms)aggregations.asMap().get("users");
+		for (Bucket actiontypeBucket : modelTerms.getBuckets()) {
+			String username = actiontypeBucket.getKey().toString();
+			usernamelist.add(username);
+		}
         List<User> list = userService.listUsersByUsernames(usernamelist);
-        
+
 		return list;
 	}
 }

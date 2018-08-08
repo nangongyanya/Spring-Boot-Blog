@@ -2,7 +2,7 @@ package com.lakey.blog.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.waylau.spring.boot.blog.domain.Authority;
+import com.lakey.blog.domain.Authority;
 
 /**
  * Authority 仓库.

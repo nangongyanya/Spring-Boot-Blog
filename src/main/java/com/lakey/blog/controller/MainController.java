@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,10 +17,10 @@ import com.lakey.blog.service.AuthorityService;
 import com.lakey.blog.service.UserService;
 
 /**
- * 主页控制器.
- * 
- * @since 1.0.0 2017年3月8日
- * @author <a href="https://waylau.com">Way Lau</a> 
+ * 主页控制器
+ *
+ * @since 1.0.0 2018 年 8 月 8 日
+ * @author Rimon
  */
 @Controller
 public class MainController {
@@ -41,8 +43,34 @@ public class MainController {
 		return "redirect:/blogs";
 	}
 
+    /**
+     * 获取用户注册页面
+     *
+     * @return
+     */
+    @GetMapping("/register")
+    public String register() {
+        return "register";
+    }
+
+    /**
+     * 注册用户
+     *
+     * @param user
+     * @return
+     */
+    @PostMapping("/register")
+    public String registerUser(User user) {
+        List<Authority> authorities = new ArrayList<>();
+        authorities.add(authorityService.getAuthorityById(ROLE_USER_AUTHORITY_ID));
+        user.setAuthorities(authorities);
+        userService.saveUser(user);
+        return "redirect:/login";
+    }
+
 	/**
 	 * 获取登录界面
+	 *
 	 * @return
 	 */
 	@GetMapping("/login")
@@ -50,34 +78,35 @@ public class MainController {
 		return "login";
 	}
 
+	/**
+	 * 登录失败处理
+	 *
+	 * @param model
+	 * @return
+	 */
 	@GetMapping("/login-error")
 	public String loginError(Model model) {
 		model.addAttribute("loginError", true);
 		model.addAttribute("errorMsg", "登陆失败，账号或者密码错误！");
 		return "login";
 	}
-	
-	@GetMapping("/register")
-	public String register() {
-		return "register";
-	}
-	
-	/**
-	 * 注册用户
-	 * @param user
-	 * @param result
-	 * @param redirect
-	 * @return
-	 */
-	@PostMapping("/register")
-	public String registerUser(User user) {
-		List<Authority> authorities = new ArrayList<>();
-		authorities.add(authorityService.getAuthorityById(ROLE_USER_AUTHORITY_ID));
-		user.setAuthorities(authorities);
-		userService.saveUser(user);
-		return "redirect:/login";
-	}
-	
+
+    @PostMapping("/login")
+    public String userLogin(User user) {
+        PasswordEncoder encoder = new BCryptPasswordEncoder();
+        String encodePasswd = encoder.encode(user.getPassword());
+        List<Authority> authorities = new ArrayList<>();
+        authorities.add(authorityService.getAuthorityById(ROLE_USER_AUTHORITY_ID));
+        user.setAuthorities(authorities);
+        userService.saveUser(user);
+        return "redirect:/login";
+    }
+
+    /**
+     * 获取查询页面
+     *
+     * @return
+     */
 	@GetMapping("/search")
 	public String search() {
 		return "search";

@@ -1,7 +1,6 @@
 package com.lakey.blog.service;
 
 import com.lakey.blog.domain.Comment;
-import com.waylau.spring.boot.blog.domain.Comment;
 
 /**
  * Comment 服务接口.

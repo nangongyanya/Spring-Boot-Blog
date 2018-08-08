@@ -32,12 +32,12 @@ public class CatalogServiceImpl implements CatalogService{
 
 	@Override
 	public void removeCatalog(Long id) {
-		catalogRepository.delete(id);
+		catalogRepository.deleteById(id);
 	}
 
 	@Override
 	public Catalog getCatalogById(Long id) {
-		return catalogRepository.findOne(id);
+		return catalogRepository.getOne(id);
 	}
 
 	@Override

@@ -27,15 +27,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.waylau.spring.boot.blog.domain.Blog;
-import com.waylau.spring.boot.blog.domain.Catalog;
-import com.waylau.spring.boot.blog.domain.User;
-import com.waylau.spring.boot.blog.domain.Vote;
-import com.waylau.spring.boot.blog.service.BlogService;
-import com.waylau.spring.boot.blog.service.CatalogService;
-import com.waylau.spring.boot.blog.service.UserService;
-import com.waylau.spring.boot.blog.util.ConstraintViolationExceptionHandler;
-import com.waylau.spring.boot.blog.vo.Response;
+import com.lakey.blog.domain.Blog;
+import com.lakey.blog.domain.Catalog;
+import com.lakey.blog.domain.User;
+import com.lakey.blog.domain.Vote;
+import com.lakey.blog.service.BlogService;
+import com.lakey.blog.service.CatalogService;
+import com.lakey.blog.service.UserService;
+import com.lakey.blog.util.ConstraintViolationExceptionHandler;
+import com.lakey.blog.vo.Response;
 
 /**
  * 用户主页空间控制器.
