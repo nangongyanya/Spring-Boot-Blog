@@ -8,10 +8,10 @@ import com.lakey.blog.domain.Catalog;
 import com.lakey.blog.domain.User;
 
 /**
- * Catalog 仓库.
+ * Catalog 仓库
  *
- * @since 1.0.0 2017年4月10日
- * @author <a href="https://waylau.com">Way Lau</a> 
+ * @since 1.0.0 2018 年 8 月 8 日
+ * @author Rimon
  */
 public interface CatalogRepository extends JpaRepository<Catalog, Long>{
 	

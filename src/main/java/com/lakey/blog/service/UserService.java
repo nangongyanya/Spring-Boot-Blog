@@ -8,7 +8,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 /**
- * User 服务接口.
+ * User 服务接口
  *
  * @since 1.0.0 2018 年 8 月 8 日
  * @author Rimon

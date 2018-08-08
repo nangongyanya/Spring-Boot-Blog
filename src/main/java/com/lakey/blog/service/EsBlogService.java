@@ -12,9 +12,9 @@ import com.lakey.blog.vo.TagVO;
 
 /**
  * Blog 服务接口.
- * 
- * @since 1.0.0 2017年4月7日
- * @author <a href="https://waylau.com">Way Lau</a>
+ *
+ * @since 1.0.0 2018 年 8 月 8 日
+ * @author Rimon
  */
 public interface EsBlogService {
  	
@@ -24,27 +24,30 @@ public interface EsBlogService {
 	 * @return
 	 */
 	void removeEsBlog(String id);
-	
+
 	/**
 	 * 更新 EsBlog
-	 * @param EsBlog
+	 *
+	 * @param esBlog
 	 * @return
 	 */
 	EsBlog updateEsBlog(EsBlog esBlog);
-	
-	/**
-	 * 根据id获取Blog
-	 * @param id
-	 * @return
-	 */
+
+    /**
+     * 根据id获取Blog
+     *
+     * @param blogId
+     * @return
+     */
 	EsBlog getEsBlogByBlogId(Long blogId);
- 
-	/**
-	 * 最新博客列表，分页
-	 * @param keyword
-	 * @param pageable
-	 * @return
-	 */
+
+    /**
+     * 最新博客列表，分页
+     *
+     * @param keyword
+     * @param pageable
+     * @return
+     */
 	Page<EsBlog> listNewestEsBlogs(String keyword, Pageable pageable);
  
 	/**
@@ -61,18 +64,19 @@ public interface EsBlogService {
 	 * @return
 	 */
 	Page<EsBlog> listEsBlogs(Pageable pageable);
-	/**
-	 * 最新前5
-	 * @param keyword
-	 * @return
-	 */
+
+    /**
+     * 最新前5
+     *
+     * @return
+     */
 	List<EsBlog> listTop5NewestEsBlogs();
-	
-	/**
-	 * 最热前5
-	 * @param keyword
-	 * @return
-	 */
+
+    /**
+     * 最热前5
+     *
+     * @return
+     */
 	List<EsBlog> listTop5HotestEsBlogs();
 	
 	/**

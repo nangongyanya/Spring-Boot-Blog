@@ -5,6 +5,7 @@ import java.util.List;
 import javax.validation.ConstraintViolationException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -29,9 +30,9 @@ import com.lakey.blog.vo.Response;
 
 /**
  * 分类 控制器.
- * 
- * @since 1.0.0 2017年4月10日
- * @author <a href="https://waylau.com">Way Lau</a> 
+ *
+ * @since 1.0.0 2018 年 8 月 8 日
+ * @author Rimon
  */
 @Controller
 @RequestMapping("/catalogs")
@@ -39,12 +40,15 @@ public class CatalogController {
 	
 	@Autowired
 	private CatalogService catalogService;
-	
+
+	@Qualifier("userServiceImpl")
 	@Autowired
 	private UserDetailsService userDetailsService;
+
 	/**
 	 * 获取分类列表
-	 * @param blogId
+	 *
+	 * @param username
 	 * @param model
 	 * @return
 	 */
@@ -68,12 +72,13 @@ public class CatalogController {
 		model.addAttribute("catalogs", catalogs);
 		return "/userspace/u :: #catalogRepleace";
 	}
-	/**
-	 * 发表分类
-	 * @param blogId
-	 * @param commentContent
-	 * @return
-	 */
+
+    /**
+     * 发表分类
+     *
+     * @param catalogVO
+     * @return
+     */
 	@PostMapping
 	@PreAuthorize("authentication.name.equals(#catalogVO.username)")// 指定用户才能操作方法
 	public ResponseEntity<Response> create(@RequestBody CatalogVO catalogVO) {
@@ -112,13 +117,13 @@ public class CatalogController {
 		
 		return ResponseEntity.ok().body(new Response(true, "处理成功", null));
 	}
-	
-	/**
-	 * 获取分类编辑界面
-	 * @param id
-	 * @param model
-	 * @return
-	 */
+
+    /**
+     * 获取分类编辑界面
+     *
+     * @param model
+     * @return
+     */
 	@GetMapping("/edit")
 	public String getCatalogEdit(Model model) {
 		Catalog catalog = new Catalog(null, null);

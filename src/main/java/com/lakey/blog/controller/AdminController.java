@@ -13,9 +13,9 @@ import com.lakey.blog.vo.Menu;
 
 /**
  * 用户控制器.
- * 
- * @author <a href="https://waylau.com">Way Lau</a>
- * @date 2017年2月26日
+ *
+ * @since 1.0.0 2018 年 8 月 8 日
+ * @author Rimon
  */
 @Controller
 @RequestMapping("/admins")

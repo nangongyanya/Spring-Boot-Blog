@@ -8,14 +8,15 @@ import org.springframework.data.domain.Pageable;
 
 /**
  * Blog 服务接口.
- * 
- * @since 1.0.0 2017年4月7日
- * @author <a href="https://waylau.com">Way Lau</a>
+ *
+ * @since 1.0.0 2018 年 8 月 8 日
+ * @author Rimon
  */
 public interface BlogService {
 	/**
 	 * 保存Blog
-	 * @param EsBlog
+	 *
+	 * @param blog
 	 * @return
 	 */
 	Blog saveBlog(Blog blog);
@@ -40,12 +41,15 @@ public interface BlogService {
 	 * @return
 	 */
 	Page<Blog> listBlogsByTitleVote(User user, String title, Pageable pageable);
- 
-	/**
-	 * 根据用户名进行分页模糊查询（最热）
-	 * @param user
-	 * @return
-	 */
+
+    /**
+     * 根据用户名进行分页模糊查询（最热）
+     *
+     * @param suser
+     * @param title
+     * @param pageable
+     * @return
+     */
 	Page<Blog> listBlogsByTitleVoteAndSort(User suser, String title, Pageable pageable);
 	
 	/**

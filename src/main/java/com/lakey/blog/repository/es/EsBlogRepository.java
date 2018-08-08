@@ -8,9 +8,9 @@ import com.lakey.blog.domain.es.EsBlog;
 
 /**
  * Blog 存储库.
- * 
- * @since 1.0.0 2017年3月12日
- * @author <a href="https://waylau.com">Way Lau</a> 
+ *
+ * @since 1.0.0 2018 年 8 月 8 日
+ * @author Rimon
  */
 public interface EsBlogRepository extends ElasticsearchRepository<EsBlog, String> {
  

@@ -17,9 +17,9 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 /**
  * Catalog 实体
- * 
- * @since 1.0.0 2017年4月10日
- * @author <a href="https://waylau.com">Way Lau</a>
+ *
+ * @since 1.0.0 2018 年 8 月 8 日
+ * @author Rimon
  */
 @Entity // 实体
 public class Catalog implements Serializable {

@@ -17,10 +17,10 @@ import com.lakey.blog.domain.Comment;
 import com.lakey.blog.domain.User;
 
 /**
- * Blog 服务.
- * 
- * @since 1.0.0 2017年4月7日
- * @author <a href="https://waylau.com">Way Lau</a>
+ * Blog 服务
+ *
+ * @since 1.0.0 2018 年 8 月 8 日
+ * @author Rimon
  */
 @Service
 public class BlogServiceImpl implements BlogService {

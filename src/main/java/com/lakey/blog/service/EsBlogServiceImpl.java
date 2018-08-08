@@ -32,9 +32,9 @@ import com.lakey.blog.vo.TagVO;
 
 /**
  * EsBlog 服务.
- * 
- * @since 1.0.0 2017年4月12日
- * @author <a href="https://waylau.com">Way Lau</a>
+ *
+ * @since 1.0.0 2018 年 8 月 8 日
+ * @author Rimon
  */
 @Service
 public class EsBlogServiceImpl implements EsBlogService {

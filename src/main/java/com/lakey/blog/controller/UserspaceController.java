@@ -5,6 +5,7 @@ import java.util.List;
 import javax.validation.ConstraintViolationException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -39,13 +40,14 @@ import com.lakey.blog.vo.Response;
 
 /**
  * 用户主页空间控制器.
- * 
- * @since 1.0.0 2017年3月25日
- * @author <a href="https://waylau.com">Way Lau</a> 
+ *
+ * @since 1.0.0 2018 年 8 月 8 日
+ * @author Rimon
  */
 @Controller
 @RequestMapping("/u")
 public class UserspaceController {
+	@Qualifier("userServiceImpl")
 	@Autowired
 	private UserDetailsService userDetailsService;
 	
@@ -73,12 +75,12 @@ public class UserspaceController {
 		model.addAttribute("user", user);
 		return new ModelAndView("/userspace/profile", "userModel", model);
 	}
- 
+
 	/**
 	 * 保存个人设置
+	 *
+	 * @param username
 	 * @param user
-	 * @param result
-	 * @param redirect
 	 * @return
 	 */
 	@PostMapping("/{username}/profile")
@@ -114,14 +116,15 @@ public class UserspaceController {
 		model.addAttribute("user", user);
 		return new ModelAndView("/userspace/avatar", "userModel", model);
 	}
-	
-	
-	/**
-	 * 保存头像
-	 * @param username
-	 * @param model
-	 * @return
-	 */
+
+
+    /**
+     * 保存头像
+     *
+     * @param username
+     * @param user
+     * @return
+     */
 	@PostMapping("/{username}/avatar")
 	@PreAuthorize("authentication.name.equals(#username)") 
 	public ResponseEntity<Response> saveAvatar(@PathVariable("username") String username, @RequestBody User user) {
@@ -217,14 +220,15 @@ public class UserspaceController {
 		
 		return "/userspace/blog";
 	}
-	
-	
-	/**
-	 * 删除博客
-	 * @param id
-	 * @param model
-	 * @return
-	 */
+
+
+    /**
+     * 删除博客
+     *
+     * @param username
+     * @param id
+     * @return
+     */
 	@DeleteMapping("/{username}/blogs/{id}")
 	@PreAuthorize("authentication.name.equals(#username)") 
 	public ResponseEntity<Response> deleteBlog(@PathVariable("username") String username,@PathVariable("id") Long id) {

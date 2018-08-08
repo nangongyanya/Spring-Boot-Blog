@@ -9,9 +9,9 @@ import org.springframework.stereotype.Service;
 
 /**
  * Vote 服务.
- * 
- * @since 1.0.0 2017年4月9日
- * @author <a href="https://waylau.com">Way Lau</a>
+ *
+ * @since 1.0.0 2018 年 8 月 8 日
+ * @author Rimon
  */
 @Service
 public class VoteServiceImpl implements VoteService {

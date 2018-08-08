@@ -18,14 +18,14 @@ $(function() {
 		$(this).addClass("active");  
  
 		// 加载其他模块的页面到右侧工作区
-		 $.ajax({ 
-			 url: url, 
-			 success: function(data){
-				 $("#rightContainer").html(data);
-		 },
-		 error : function() {
-		     alert("error");
-		     }
+		$.ajax({
+			url: url,
+			success: function(data){
+				$("#rightContainer").html(data);
+			},
+		 	error : function() {
+		    	alert("error");
+		    }
 		 });
 	});
 	
